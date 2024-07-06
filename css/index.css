@@ -869,6 +869,7 @@ section.copyright span{
     }
     header{
         flex-direction: column;
+        position: sticky;
     }
     header .heading{
         align-self: flex-start;
@@ -942,7 +943,6 @@ section.copyright span{
         grid-template-columns: 1fr;
     }
     section.intro{
-        margin-top: 4rem;
         grid-template-columns: 1fr;
         min-height: 0;
     }
