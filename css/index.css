@@ -130,7 +130,8 @@ section h2::before{
 section.intro{
     display: grid;
     grid-template-columns: 50% 50%;
-    min-height: 100vh;
+    min-height: 500px;
+    height: 100vh;
     place-items: center;
 }
 section.intro h1{
@@ -991,6 +992,9 @@ section.copyright span{
     }
     section.social-medias{
         margin-bottom: unset;
+    }
+    section.intro{
+        height: fit-content;
     }
 }
 @media screen and (max-width:426px){
