@@ -69,8 +69,8 @@ header .heading h1{
     font-weight: 600;
 }
 header .heading img{
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 2rem;
+    width: 2rem;
 }
 header nav{
     width: auto;
@@ -97,7 +97,7 @@ header img.menu{
     width: 2rem;
     position: absolute;
     right: 1.5rem;
-    top: auto;
+    top: 28px;
     display: none;
 }
 button.emp-corner{
@@ -501,6 +501,10 @@ section.development-approch .approch-container .approch:nth-child(6) img{
 }
 
 /*Our tech stacks*/
+section.tech-stacks{
+    display: flex;
+    flex-direction: column;
+}
 section.tech-stacks h2{
     text-align: center;
 }
@@ -510,6 +514,7 @@ section.tech-stacks nav::-webkit-scrollbar{
 section.tech-stacks nav{
     width: 100%;
     margin: 1rem 0;
+    /* background-color: green; */
 }
 section.tech-stacks nav ul{
     display: flex;
@@ -518,21 +523,32 @@ section.tech-stacks nav ul{
 }
 section.tech-stacks nav ul li{
     font-size: var(--SMALL);
-    color: transparent;
-    background: linear-gradient(#F76680 0%,#57007B 100%);
-    background-clip: text;
+    color: #1A202C;
+    list-style: none;
     position: relative;
     text-wrap: nowrap;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 250ms;
+}
+section.tech-stacks nav ul li:hover{
+    background: linear-gradient(#F76680 0%,#57007B 100%);
+    background-clip: text;
+    color: transparent;
 }
 section.tech-stacks nav ul li::after{
     content: "";
     position: absolute;
-    bottom: -.5rem;
+    bottom: -.15rem;
     left: calc(50% - 1rem);
     background: linear-gradient(#F76680 0%,#57007B 100%);
-    height: .25rem;
-    width: 2rem;
+    height: .2rem;
+    width: 0;
     border-radius: 50px;
+    transition: 250ms;
+}
+section.tech-stacks nav ul li:hover::after{
+    width: 2rem;
 }
 section.tech-stacks .stacks{
     display: flex;
@@ -540,7 +556,7 @@ section.tech-stacks .stacks{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding-top: 2.5rem;
+    margin-top: 1rem;
 }
 section.tech-stacks img{
     width: 15%;
@@ -862,7 +878,7 @@ section.copyright span{
     button#nav-emp-corner-button{
         display: block;
     }
-    header img.menu,header img.close{
+    header img.menu{
         display: block;
     }
     header img.close{
@@ -963,8 +979,10 @@ section.copyright span{
         text-align: center;
     }
     section.tech-stacks nav{
+        max-width: fit-content;
         overflow-x: scroll;
         padding: .5rem;
+        align-self: center;
     }
     section.tech-stacks nav ul{
         justify-content: flex-start;
