@@ -18,6 +18,9 @@ body{
     width: 100%;
     font-family: "Poppins", sans-serif;
 }
+html{
+    scroll-behavior: smooth;
+}
 ::-webkit-scrollbar{
     width: .5rem;
 }
@@ -82,12 +85,14 @@ header nav ul{
     align-items: center;
 }
 header nav ul li{
-    color: #4A5568;
     font-size: var(--SMALL);
-    cursor: pointer;
-    font-weight: 500;
 }
-header nav ul li:hover{
+header nav ul li a{
+    font-weight: 500;
+    text-decoration: none;
+    color: #4A5568;
+}
+header nav ul li a:hover{
     color: transparent;
     transition: 250ms;
     background: linear-gradient(#F76680 0%,#57007B 100%);
@@ -508,7 +513,7 @@ section.tech-stacks{
 section.tech-stacks h2{
     text-align: center;
 }
-section.tech-stacks nav::-webkit-scrollbar{
+section.tech-stacks nav ul::-webkit-scrollbar{
     height: 0;
 }
 section.tech-stacks nav{
@@ -908,8 +913,13 @@ section.copyright span{
     }
     header nav ul li{
         text-align: center;
-        padding: 1rem 0;
         width: 100%;
+        display: flex;
+    }
+    header nav ul li a{
+        height: 100%;
+        width: 100%;
+        padding: 1rem 0;
         text-wrap: nowrap;
     }
     header nav ul button{
@@ -981,12 +991,19 @@ section.copyright span{
     }
     section.tech-stacks nav{
         max-width: fit-content;
-        overflow-x: scroll;
-        padding: .5rem;
+        padding: 0 .5rem;
         align-self: center;
+        margin: 0;
     }
     section.tech-stacks nav ul{
+        overflow-x: scroll;
         justify-content: flex-start;
+        scroll-snap-type: x mandatory;
+        padding: .5rem 0;
+    }
+    section.tech-stacks nav ul li{
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
     }
     section.hire-dev .hire-dev-container{
         flex-direction: column;
