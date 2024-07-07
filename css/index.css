@@ -97,7 +97,7 @@ header img.menu{
     width: 2rem;
     position: absolute;
     right: 1.5rem;
-    top: 28px;
+    top: 21px;
     display: none;
 }
 button.emp-corner{
@@ -887,6 +887,7 @@ section.copyright span{
     header{
         flex-direction: column;
         position: sticky;
+        padding: 1rem;
     }
     header .heading{
         align-self: flex-start;
