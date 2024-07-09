@@ -13,19 +13,20 @@ main.onclick = function(){
 
 const techStackContainers = document.querySelectorAll('.tech-stacks .stacks');
 const techStackNavs = document.querySelectorAll('.tech-stacks nav li');
-techStackNavs.forEach((techStackNav)=>{
+
+var currentPage = 0;
+techStackNavs.forEach((techStackNav,index) => {
     techStackNav.onclick = function(){
-        const id = techStackNav.innerText.toLowerCase().replace(" ","_");
-        var targetId = document.getElementById(`${id}`);
-        techStackNavs.forEach(techStackNav => {
-            techStackNav.classList.remove('active');
-            const id = techStackNav.innerText.toLowerCase().replace(" ","_");
-            var targetId = document.getElementById(`${id}`);
-            targetId.classList.remove('display-stacks');
-        });
-        targetId.classList.add('display-stacks');
-        techStackNav.classList.add('active');
+        togglePageVisibility(index,currentPage);
+        currentPage = index;
     };
 });
 
-//TODO:Logic should be simplified
+function togglePageVisibility(pageToShow,pageToHide){
+    if(pageToShow !== pageToHide){
+        techStackNavs[pageToShow].classList.add('active');
+        techStackNavs[pageToHide].classList.remove('active');
+        techStackContainers[pageToShow].classList.add('display-stacks');
+        techStackContainers[pageToHide].classList.remove('display-stacks');
+    }
+}
