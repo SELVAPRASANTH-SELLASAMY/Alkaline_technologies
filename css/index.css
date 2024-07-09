@@ -31,6 +31,7 @@ html{
 main section,footer{
     width: 100%;
     padding: 3rem;
+    scroll-margin: 80px;
 }
 main section:nth-child(even){
     background-color: #ffffff;
@@ -115,7 +116,7 @@ button#nav-emp-corner-button{
     display: none;
 }
 
-section h2:not(section.our-services h2,section.hire-dev .hire-dev-container h2){
+section h2:not(section.hire-dev .hire-dev-container h2){
     font-size: var(--EXTRA_LARGE);
     margin: .5rem 0;
     font-weight: 400;
@@ -536,7 +537,7 @@ section.tech-stacks nav ul li{
     cursor: pointer;
     transition: 250ms;
 }
-section.tech-stacks nav ul li:hover{
+section.tech-stacks nav ul li:hover,section.tech-stacks nav ul li.active{
     background: linear-gradient(#F76680 0%,#57007B 100%);
     background-clip: text;
     color: transparent;
@@ -552,7 +553,7 @@ section.tech-stacks nav ul li::after{
     border-radius: 50px;
     transition: 250ms;
 }
-section.tech-stacks nav ul li:hover::after{
+section.tech-stacks nav ul li:hover::after,section.tech-stacks nav ul li.active::after{
     width: 2rem;
 }
 section.tech-stacks .stacks{
@@ -564,8 +565,8 @@ section.tech-stacks .stacks{
     margin-top: 1rem;
 }
 section.tech-stacks img{
-    width: 15%;
-    min-width: 130px;
+    width: 10%;
+    min-width: 80px;
 }
 
 /*how-development*/
@@ -873,6 +874,7 @@ section.copyright span{
 @media screen and (max-width:769px){
     main section{
         padding: 3rem 1.5rem;
+        scroll-margin: 450px;
     }
     footer{
         padding: 0 1.5rem;
