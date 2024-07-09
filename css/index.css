@@ -557,12 +557,15 @@ section.tech-stacks nav ul li:hover::after,section.tech-stacks nav ul li.active:
     width: 2rem;
 }
 section.tech-stacks .stacks{
-    display: flex;
+    display: none;
     gap: 2.5rem 5rem;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-top: 1rem;
+}
+section.tech-stacks .display-stacks{
+    display: flex;
 }
 section.tech-stacks img{
     width: 10%;
