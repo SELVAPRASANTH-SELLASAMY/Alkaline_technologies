@@ -30,3 +30,20 @@ function togglePageVisibility(pageToShow,pageToHide){
         techStackContainers[pageToHide].classList.remove('display-stacks');
     }
 }
+
+const resources = document.querySelectorAll('.featured-resources .resource-container > *');
+const resource_container = document.querySelector('.featured-resources .resource-container');
+var scrollWidth = resources[0].offsetWidth + Number(getComputedStyle(resource_container).gap.substring(0,2));
+var scrollLimit = ((resources.length +1) * scrollWidth) - resource_container.offsetWidth;
+var temp = scrollWidth;
+const scroll = () => {
+    resource_container.scrollTo({left:temp,behavior:"smooth"});
+    if(temp >= scrollLimit){
+        resource_container.scrollTo({left:-temp,behavior:"instant"});
+        temp = scrollWidth;
+    }
+    else{
+        temp += scrollWidth;
+    }
+}
+setInterval(scroll,[2000]);

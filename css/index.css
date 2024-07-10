@@ -658,7 +658,7 @@ section.featured-resources .resource-container::-webkit-scrollbar{
     height: 0;
 }
 section.featured-resources .resource-tile{
-    scroll-snap-align: center;
+    scroll-snap-align: start;
 }
 section.featured-resources .resource-tile img{
     height: 12.5rem;
