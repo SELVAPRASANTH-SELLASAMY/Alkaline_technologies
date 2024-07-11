@@ -33,11 +33,14 @@ function togglePageVisibility(pageToShow,pageToHide){
 
 const resources = document.querySelectorAll('.featured-resources .resource-container > *');
 const resource_container = document.querySelector('.featured-resources .resource-container');
+var copy = resource_container.cloneNode(true).innerHTML;
+resource_container.insertAdjacentHTML("beforeend",copy);
 var scrollWidth = resources[0].offsetWidth + Number(getComputedStyle(resource_container).gap.substring(0,2));
-var scrollLimit = ((resources.length +1) * scrollWidth) - resource_container.offsetWidth;
+var ResourceContainerWidth = resource_container.offsetWidth;
+var maxResourceCount = resources.length - Math.round((resources.length * resources[0].offsetWidth) / ResourceContainerWidth);
+var scrollLimit = ((resources.length + maxResourceCount) * scrollWidth) - resource_container.offsetWidth;
 var temp = scrollWidth;
 const scroll = () => {
-    resource_container.scrollTo({left:temp,behavior:"smooth"});
     if(temp >= scrollLimit){
         resource_container.scrollTo({left:-temp,behavior:"instant"});
         temp = scrollWidth;
@@ -45,5 +48,6 @@ const scroll = () => {
     else{
         temp += scrollWidth;
     }
+    resource_container.scrollTo({left:temp,behavior:"smooth"});
 }
-setInterval(scroll,[2000]);
+const interval = setInterval(scroll,[2000]);
