@@ -38,7 +38,8 @@ resource_container.insertAdjacentHTML("beforeend",copy);
 var scrollWidth = resources[0].offsetWidth + Number(getComputedStyle(resource_container).gap.substring(0,2));
 var ResourceContainerWidth = resource_container.offsetWidth;
 var maxResourceCount = resources.length - Math.round((resources.length * resources[0].offsetWidth) / ResourceContainerWidth);
-var scrollLimit = ((resources.length + maxResourceCount - 1) * scrollWidth) - resource_container.offsetWidth;
+var totalResourceCount = ResourceContainerWidth <= 365 ? (resources.length + maxResourceCount) : (resources.length + maxResourceCount - 1);
+var scrollLimit = (totalResourceCount * scrollWidth) - ResourceContainerWidth;
 var temp = 0;
 const scroll = () => {
     if(temp >= scrollLimit){
