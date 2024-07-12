@@ -311,7 +311,7 @@ section.client-feedbacks .feedback-tile-container::-webkit-scrollbar{
 }
 section.client-feedbacks .feedback-tile-container .feedback-tile{
     background-color: #ffffff;
-    min-width: 180px;
+    min-width: 200px;
     width: 15rem;
     min-height: fit-content;
     display: flex;
@@ -319,7 +319,7 @@ section.client-feedbacks .feedback-tile-container .feedback-tile{
     align-items: center;
     padding: 3rem 1rem;
     border-radius: .25rem;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
 }
 section.client-feedbacks .feedback-tile-container .feedback-tile img{
     height: 5rem;

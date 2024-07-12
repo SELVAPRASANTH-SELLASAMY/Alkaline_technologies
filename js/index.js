@@ -31,24 +31,31 @@ function togglePageVisibility(pageToShow,pageToHide){
     }
 }
 
+function scroll(scroll_items,scroll_items_container){
+    var copy = scroll_items_container.cloneNode(true).innerHTML;
+    scroll_items_container.insertAdjacentHTML("beforeend",copy);
+    var scrollWidth = scroll_items[0].offsetWidth + Number(getComputedStyle(scroll_items_container).gap.substring(0,2));
+    var scrollContainerWidth = scroll_items_container.offsetWidth;
+    var maxdisplayableItemsCount = scroll_items.length - Math.round((scroll_items.length * scroll_items[0].offsetWidth) / scrollContainerWidth);
+    var maxItemsNeeded = scrollContainerWidth <= 365 ? (scroll_items.length + maxdisplayableItemsCount) : (scroll_items.length + maxdisplayableItemsCount - 1);
+    var scrollLimit = (maxItemsNeeded * scrollWidth) - scrollContainerWidth;
+    var temp = 0;
+    const scroll = () => {
+        if(temp >= scrollLimit){
+            scroll_items_container.scrollTo({left:-temp,behavior:"instant"});
+            temp = scrollWidth;
+        }
+        else{
+            temp += scrollWidth;
+        }
+        scroll_items_container.scrollTo({left:temp,behavior:"smooth"});
+    }
+    const interval = setInterval(scroll,[2000]);
+}
+
 const resources = document.querySelectorAll('.featured-resources .resource-container > *');
 const resource_container = document.querySelector('.featured-resources .resource-container');
-var copy = resource_container.cloneNode(true).innerHTML;
-resource_container.insertAdjacentHTML("beforeend",copy);
-var scrollWidth = resources[0].offsetWidth + Number(getComputedStyle(resource_container).gap.substring(0,2));
-var ResourceContainerWidth = resource_container.offsetWidth;
-var maxResourceCount = resources.length - Math.round((resources.length * resources[0].offsetWidth) / ResourceContainerWidth);
-var totalResourceCount = ResourceContainerWidth <= 365 ? (resources.length + maxResourceCount) : (resources.length + maxResourceCount - 1);
-var scrollLimit = (totalResourceCount * scrollWidth) - ResourceContainerWidth;
-var temp = 0;
-const scroll = () => {
-    if(temp >= scrollLimit){
-        resource_container.scrollTo({left:-temp,behavior:"instant"});
-        temp = scrollWidth;
-    }
-    else{
-        temp += scrollWidth;
-    }
-    resource_container.scrollTo({left:temp,behavior:"smooth"});
-}
-const interval = setInterval(scroll,[2000]);
+const feedback_tiles = document.querySelectorAll('.feedback-tile-container > *');
+const feedback_tiles_container = document.querySelector('.feedback-tile-container');
+scroll(resources,resource_container);
+scroll(feedback_tiles,feedback_tiles_container);
