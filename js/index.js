@@ -59,3 +59,5 @@ const feedback_tiles = document.querySelectorAll('.feedback-tile-container > *')
 const feedback_tiles_container = document.querySelector('.feedback-tile-container');
 scroll(resources,resource_container);
 scroll(feedback_tiles,feedback_tiles_container);
+
+//TODO:Fix needed for client-feedbacks on scrollContainerWidth <= 695
