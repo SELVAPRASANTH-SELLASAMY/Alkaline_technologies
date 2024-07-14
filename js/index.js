@@ -60,4 +60,6 @@ const feedback_tiles_container = document.querySelector('.feedback-tile-containe
 scroll(resources,resource_container);
 scroll(feedback_tiles,feedback_tiles_container);
 
-//TODO:Fix needed for client-feedbacks on scrollContainerWidth <= 695
+const client_list = document.querySelector('.clients .client-lists');
+const client_list_copy = client_list.cloneNode(true).innerHTML;
+client_list.insertAdjacentHTML("beforeend",client_list_copy);

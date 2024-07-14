@@ -249,19 +249,26 @@ section.about-us .about-us-video video{
 }
 
 /*Clients*/
-section.clients .client-lists::-webkit-scrollbar{
+section.clients .client-list-container::-webkit-scrollbar{
     height: 0;
 }
 section.clients h2::before{
     left: 0;
 }
-section.clients .client-lists{
+section.clients .client-list-container{
+    overflow-x: auto;
+    padding: 1rem 0;
     width: 100%;
+}
+section.clients .client-lists{
     display: flex;
     align-items: center;
-    overflow-x: auto;
     gap: 3rem;
-    padding: 1rem 0;
+    animation: scroll 10s linear infinite;
+}
+@keyframes scroll {
+    From{transform: translateX(50px);}
+    To{transform: translateX(-1400px);}
 }
 section.clients .client-lists img.client-tile{
     height: 5rem;
@@ -300,11 +307,11 @@ section.client-feedbacks .feedback-tile-container{
     width: fit-content;
     max-width: 100%;
     margin-top: 1.5rem;
-    display: grid;
     display: flex;
     gap: 2rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    padding: .5rem 0;
 }
 section.client-feedbacks .feedback-tile-container::-webkit-scrollbar{
     height: 0;
@@ -320,10 +327,12 @@ section.client-feedbacks .feedback-tile-container .feedback-tile{
     padding: 3rem 1rem;
     border-radius: .25rem;
     scroll-snap-align: start;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 section.client-feedbacks .feedback-tile-container .feedback-tile img{
     height: 5rem;
     width: 5rem;
+    image-rendering: pixelated;
     border-radius: 50%;
 }
 section.client-feedbacks .feedback-tile-container .feedback-tile span{
@@ -404,6 +413,9 @@ section.building-great-software .build-technique-container{
     gap: 5rem;
     width: 100%;
     margin: 2.5rem 0;
+}
+section.building-great-software .build-technique-container:last-child{
+    margin-bottom: 0;
 }
 section.building-great-software .build-technique-container:nth-child(even){
     flex-direction: row-reverse;
