@@ -270,6 +270,9 @@ section.clients .client-lists{
     From{transform: translateX(50px);}
     To{transform: translateX(-1400px);}
 }
+section.clients .client-lists:hover{
+    animation-play-state: paused;
+}
 section.clients .client-lists img.client-tile{
     height: 5rem;
 }
@@ -774,6 +777,10 @@ section.links nav ul li{
     color: #718096;
     margin: 1rem 0;
     cursor: pointer;
+}
+section.links nav ul li a{
+    color: #718096;
+    text-decoration: none;
 }
 
 /*contact-us*/
