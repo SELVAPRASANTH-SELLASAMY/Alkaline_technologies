@@ -60,12 +60,3 @@ function scroll(scroll_items,scroll_items_container){
 
 scroll(feedback_tiles,feedback_tiles_container);
 scroll(resources,resource_container);
-
-const anchors = document.querySelectorAll('a');
-anchors.forEach(anchor => {
-    anchor.onclick = function(e){
-        e.preventDefault();
-        const id = anchor.getAttribute('href');
-        document.querySelector(id).scrollIntoView({behavior:"smooth"});
-    }
-});
