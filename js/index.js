@@ -1,4 +1,4 @@
-const nav = document.querySelector('header nav');
+const nav = document.querySelector('header nav ul');
 const hamburger = document.querySelector('img.menu');
 hamburger.onclick = function(){
     nav.classList.toggle('show-nav');

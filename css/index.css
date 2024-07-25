@@ -923,17 +923,17 @@ section.copyright span{
         margin: .25rem 0;
     }
     header nav{
-        height: 0;
-        overflow: hidden;
         width: 100%;
         padding: 0 1.5rem;
-        transition: 250ms;
     }
     .show-nav{
         height: 375px;
     }
     header nav ul{
         flex-direction: column;
+        height: 0;
+        overflow: hidden;
+        transition: 300ms;
     }
     header nav ul li{
         text-align: center;
