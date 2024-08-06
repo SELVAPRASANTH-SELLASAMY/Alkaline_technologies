@@ -46,7 +46,7 @@ function scroll(scroll_items,scroll_items_container){
     scroll_items_container.insertAdjacentHTML("beforeend",copy);
     const maxScroll = scroll_items.length * scrollWidth;
     var temp = 0;
-    setInterval(()=>{
+    const startScroll = () => {
         if(temp >= maxScroll){
             scroll_items_container.scrollTo({left:0,behavior:"instant"});
             temp = scrollWidth;
@@ -55,7 +55,14 @@ function scroll(scroll_items,scroll_items_container){
             temp += scrollWidth;
         }
         scroll_items_container.scrollTo({left:temp,behavior:"smooth"});
-    },[2000])
+    }
+    var interval = setInterval(startScroll,[2000]);
+    window.addEventListener('scroll',function(){
+        clearInterval(interval);
+    });
+    window.addEventListener('scrollend',function(){
+        interval = setInterval(startScroll,[2000]);
+    });
 }
 
 scroll(feedback_tiles,feedback_tiles_container);
