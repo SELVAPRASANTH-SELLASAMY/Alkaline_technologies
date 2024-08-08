@@ -31,39 +31,35 @@ function togglePageVisibility(pageToShow,pageToHide){
     }
 }
 
-const resources = document.querySelectorAll('.featured-resources .resource-container > *');
-const resource_container = document.querySelector('.featured-resources .resource-container');
-const feedback_tiles = document.querySelectorAll('.feedback-tile-container > *');
-const feedback_tiles_container = document.querySelector('.feedback-tile-container');
-
 const client_list = document.querySelector('.clients .client-lists');
 const client_list_copy = client_list.cloneNode(true).innerHTML;
 client_list.insertAdjacentHTML("beforeend",client_list_copy);
 
-function scroll(scroll_items,scroll_items_container){
-    const scrollWidth = scroll_items[0].offsetWidth + Number(getComputedStyle(scroll_items_container).gap.substring(0,2));
-    const copy = scroll_items_container.cloneNode(true).innerHTML;
-    scroll_items_container.insertAdjacentHTML("beforeend",copy);
-    const maxScroll = scroll_items.length * scrollWidth;
-    var temp = 0;
-    const startScroll = () => {
-        if(temp >= maxScroll){
-            scroll_items_container.scrollTo({left:0,behavior:"instant"});
-            temp = scrollWidth;
-        }
-        else{
-            temp += scrollWidth;
-        }
-        scroll_items_container.scrollTo({left:temp,behavior:"smooth"});
-    }
-    var interval = setInterval(startScroll,[2000]);
-    window.addEventListener('scroll',function(){
-        clearInterval(interval);
-    });
-    window.addEventListener('scrollend',function(){
-        interval = setInterval(startScroll,[2000]);
-    });
-}
+const swiper = new Swiper('.client-feedbacks .swiper', {
+    speed: 400,
+    slidesPerView : 'auto',
+    spaceBetween : 20,
+    autoplay : true,
+    loop : true,
+    centeredSlides : true,
+    allowTouchMove : true,
+    pagination : {
+        el: '.swiper-pagination',
+        type: 'bullets',
+    },
+    followFinger : true
+});
 
-scroll(feedback_tiles,feedback_tiles_container);
-scroll(resources,resource_container);
+const resource_swiper = new Swiper('.featured-resources .swiper', {
+    speed: 400,
+    slidesPerView : 'auto',
+    spaceBetween : window.innerWidth > 850 ? 50 : 20,
+    autoplay : true,
+    loop : true,
+    allowTouchMove : true,
+    pagination : {
+        el: '.swiper-pagination',
+        type: 'bullets',
+    },
+    followFinger : true
+});

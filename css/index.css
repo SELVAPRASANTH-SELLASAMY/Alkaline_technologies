@@ -306,20 +306,15 @@ section.client-feedbacks p{
     text-align: center;
     position: relative;
 }
-section.client-feedbacks .feedback-tile-container{
-    width: fit-content;
-    max-width: 100%;
+section.client-feedbacks .swiper{
+    width: 100%;
+    padding-bottom: 2rem;
     margin-top: 1.5rem;
-    display: flex;
-    gap: 2rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: .5rem 0;
 }
-section.client-feedbacks .feedback-tile-container::-webkit-scrollbar{
-    height: 0;
+section.client-feedbacks .swiper-slide{
+    margin: 1rem 0;
 }
-section.client-feedbacks .feedback-tile-container .feedback-tile{
+section.client-feedbacks .feedback-tile{
     background-color: #ffffff;
     min-width: 200px;
     width: 15rem;
@@ -332,29 +327,29 @@ section.client-feedbacks .feedback-tile-container .feedback-tile{
     scroll-snap-align: start;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-section.client-feedbacks .feedback-tile-container .feedback-tile img{
+section.client-feedbacks .feedback-tile img{
     height: 5rem;
     width: 5rem;
     image-rendering: pixelated;
     border-radius: 50%;
 }
-section.client-feedbacks .feedback-tile-container .feedback-tile span{
+section.client-feedbacks .feedback-tile span{
     font-size: var(--LARGE);
     color: #FFD700;
     text-shadow: 0 0 .1rem grey;
 }
-section.client-feedbacks .feedback-tile-container .feedback-tile p{
+section.client-feedbacks .feedback-tile p{
     width: 100%;
     font-size: var(--SMALL);
     text-wrap: nowrap;
     align-self: flex-start;
     text-align: center;
 }
-section.client-feedbacks .feedback-tile-container .feedback-tile p.client-name{
+section.client-feedbacks .feedback-tile p.client-name{
     color: #57007B;
     font-weight: 600;
 }
-section.client-feedbacks .feedback-tile-container .feedback-tile p.designation{
+section.client-feedbacks .feedback-tile p.designation{
     font-size: var(--EXTRA_SMALL);
 }
 
@@ -661,19 +656,18 @@ section.how-development .idea-container img{
 section.featured-resources h2{
     text-align: center;
 }
-section.featured-resources .resource-container{
-    display: flex;
-    overflow-x: auto;
-    gap: 5rem;
+section.featured-resources .swiper{
     margin-top: 1.5rem;
-    scroll-snap-type: x mandatory;
-    scroll-snap-stop: always;
+    width: 100%;
 }
-section.featured-resources .resource-container::-webkit-scrollbar{
-    height: 0;
+section.featured-resources .swiper-wrapper{
+    padding-bottom: 2.5rem;
+}
+section.featured-resources .swiper-pagination{
+    bottom: 0;
 }
 section.featured-resources .resource-tile{
-    scroll-snap-align: start;
+    width: 320px;
 }
 section.featured-resources .resource-tile img{
     height: 12.5rem;
@@ -886,11 +880,14 @@ section.copyright span{
     section.how-development .idea-container .tile:nth-child(even){
         margin-left: 1rem;
     }
-    section.tech-stacks .stacks,section.featured-resources .resource-container{
+    section.tech-stacks .stacks{
         gap: 2.5rem;
     }
     section.featured-resources .resource-tile img{
         height: 10rem;
+    }
+    section.featured-resources .resource-tile{
+        width: 256px;
     }
 }
 @media screen and (max-width:769px){
@@ -1044,9 +1041,9 @@ section.copyright span{
     section.contact-us,section.links,footer .org{
         grid-column: span 4;
     }
-    section.featured-resources .resource-container{
+    /* section.featured-resources .resource-container{
         gap: 1.5rem;
-    }
+    } */
     section.links nav ul li:last-child{
         margin-bottom: unset;
     }
